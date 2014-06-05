@@ -16,18 +16,47 @@ function getForm()
   return html;
 }
 
-function add(data)
+function extractNumber1(urldata)
 {
-  var num1 = parseFloat(data[num1ParamName]);
-  var num2 = parseFloat(data[num2ParamName]);
+  if (num1ParamName in urldata)
+  {
+    return urldata[num1ParamName];
+  }
+
+  throw new Error("Missing " + num1ParamName);
+}
+
+function extractNumber2(urldata)
+{
+  if (num2ParamName in urldata)
+  {
+    return urldata[num2ParamName];
+  }
+
+  throw new Error("Missing " + num2ParamName);
+}
+
+function add(num1, num2)
+{
+  // Make sure we are dealing with numbers
+  var num1 = parseFloat(num1);
+  var num2 = parseFloat(num2);
 
   if (!isNaN(num1) && !isNaN(num2))
   {
     return num1 + num2;
   }
 
-  throw "Invalid input";
+  throw new Error("Invalid input");
 }
 
+// Export param names for testing
+exports.num1ParamName = num1ParamName;
+exports.num2ParamName = num2ParamName;
+
+// Export methods
 exports.getForm = getForm;
+exports.extractNumber1 = extractNumber1;
+exports.extractNumber2 = extractNumber2;
 exports.add = add;
+

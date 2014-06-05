@@ -20,12 +20,15 @@ function add(response, data)
 
   try
   {
-    var result = addModule.add(data);
+    num1 = addModule.extractNumber1(data);
+    num2 = addModule.extractNumber2(data);
+
+    var result = addModule.add(num1, num2);
     response.write("Result of addition is: " + result);
   }
   catch(ex)
   {
-    response.write(ex);
+    response.write(ex.name + ": " + ex.message);
   }
 
   response.write("<br/> <br/> <a href='/'> Go Home </a>");
