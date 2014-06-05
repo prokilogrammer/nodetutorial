@@ -8,6 +8,7 @@ var addModule = require('./add.js');
 function home(response, data)
 {
   response.writeHead(200, {"Content-Type": "text/html"}); 
+  response.write("Please input the numbers to be added: <br/>");
   response.write(addModule.getForm());
   response.end();
 }

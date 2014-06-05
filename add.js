@@ -11,7 +11,7 @@ function getForm()
   var html = '<form name="add" action="/add" method="GET">' +
              'Number 1: <input type="text" name="' + num1ParamName + '"/> <br/>' +
              'Number 2: <input type="text" name="' + num2ParamName + '"/> <br/>' +
-             '<input type="Submit" value="Submit">';
+             '<input type="Submit" value="Add">';
 
   return html;
 }
