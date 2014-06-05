@@ -1,4 +1,6 @@
 # Build Environment
 build_environment: Ubuntu 12.04
 language : node_js
-
+before_script: mkdir -p shippable/testresults
+after_script:
+  - ./node_modules/nodeunit/bin/nodeunit test --reporter junit --output shippable/testresults/

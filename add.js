@@ -6,7 +6,7 @@
 var num1ParamName = "number1"
 var num2ParamName = "number2"
 
-function getForm(
+function getForm()
 {
   var html = '<form name="add" action="/add" method="GET">' +
              'Number 1: <input type="text" name="' + num1ParamName + '"/> <br/>' +
